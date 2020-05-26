@@ -1,0 +1,70 @@
+import unittest
+import pytest
+from pages.signup_page import SignUpPage
+
+
+@pytest.mark.usefixtures("oneTimeSetUp")
+class SignUpTests(unittest.TestCase):
+
+    @pytest.fixture(autouse=True)
+    def classSetUp(self, oneTimeSetUp):
+        self.signUpPage = SignUpPage(self.driver)
+
+    # Bez vyplnění zmáčknu sign up - dostanu 3 alerty
+    @pytest.mark.run(order=1)
+    def test_invalidSignUp(self):
+        self.signUpPage.signUp()
+
+        result = self.signUpPage.verifySignUpFailed()
+
+        assert result == True
+
+    # Kladný průběh - vše vyplněno správně
+    @pytest.mark.run(order=2)
+    def test_validSignUp(self):
+        self.signUpPage.refreshPage()
+        self.signUpPage.signUp("Jan", "Novák", "jan@novak.cz", "jannovak", "jannovak")
+
+    # Nevalidní e-mail - očekávám error hlášku
+    @pytest.mark.run(order=3)
+    def test_third_case(self):
+        print("order 3")
+
+    # Heslo méně jak 8 - očekávám hlášku
+    def test_pswLessThanEightChar(self):
+        print("Heslo méně jak 8 znaků")
+
+    def test_psw_less_than_eight_numbers(self):
+        print("Less than 8 numbers")
+
+    def test_psw_more_than_eight_char(self):
+        print("neočekávám error")
+
+    def test_psw_more_than_eight_numbers(self):
+        print("neočekávám error")
+
+    def test_different_passwords(self):
+        print("očekávám error")
+
+    def test_same_paswords(self):
+        print("Heslo je stejné, neočekávám error message")
+
+    def test_logo(self):
+        print("Když kliknu na logo, měl bych se dostat na HP")
+
+    def test_sign_in_here(self):
+        print("Měl bych se dostat na stránku sign In")
+
+    def test_policy(self):
+        print("Když kliknu na policy, chci vidět policy")
+
+    def test_getDriver(self):
+        print("get Drivers by settings")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("I will run once after all tests")
+
+
+if __name__ == '__main__':
+    unittest.main()
