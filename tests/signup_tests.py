@@ -7,8 +7,9 @@ from pages.signup_page import SignUpPage
 class SignUpTests(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
-    def classSetUp(self, oneTimeSetUp):
+    def classSetUp(self):
         self.signUpPage = SignUpPage(self.driver)
+        print("class setup done")
 
     # Bez vyplnění zmáčknu sign up - dostanu 3 alerty
     @pytest.mark.run(order=1)

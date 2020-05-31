@@ -1,6 +1,7 @@
 import pytest
 from base.webdriverfactory import WebDriverFactory
 
+
 @pytest.fixture(scope="class")
 def oneTimeSetUp(request, browser):
     wdf = WebDriverFactory(browser)
@@ -9,8 +10,8 @@ def oneTimeSetUp(request, browser):
     if request.cls is not None:
         request.cls.driver = driver
 
-    yield driver
-    # driver.quit()
+    yield
+    driver.quit()
 
 
 def pytest_addoption(parser):
