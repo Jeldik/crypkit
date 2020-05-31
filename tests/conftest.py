@@ -21,3 +21,25 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="session")
 def browser(request):
     return request.config.getoption("--browser")
+
+
+@pytest.fixture
+def loadValidData():
+    return {
+        "first_name": "Jan",
+        "last_name": "Novák",
+        "email": "jan@novak.cz",
+        "password": "jannovak",
+        "password_confirm": "jannovak"
+    }
+
+
+@pytest.fixture
+def loadEmptyData():
+    return {
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "password": "",
+        "password_confirm": ""
+    }

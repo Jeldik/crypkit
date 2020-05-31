@@ -3,18 +3,19 @@ import pytest
 from pages.signup_page import SignUpPage
 
 
-@pytest.mark.usefixtures("oneTimeSetUp")
+@pytest.mark.usefixtures()
 class SignUpTests(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
-    def classSetUp(self):
+    def classSetUp(self, oneTimeSetUp, loadValidData, loadEmptyData):
         self.signUpPage = SignUpPage(self.driver)
-        print("class setup done")
+        self.emptyData = loadEmptyData
+        self.validData = loadValidData
 
     # Bez vyplnění zmáčknu sign up - dostanu 3 alerty
     @pytest.mark.run(order=1)
     def test_invalidSignUp(self):
-        self.signUpPage.signUp()
+        self.signUpPage.signUp(self.emptyData)
 
         result = self.signUpPage.verifySignUpFailed()
 
@@ -24,7 +25,7 @@ class SignUpTests(unittest.TestCase):
     @pytest.mark.run(order=2)
     def test_validSignUp(self):
         self.signUpPage.refreshPage()
-        self.signUpPage.signUp("Jan", "Novák", "jan@novak.cz", "jannovak", "jannovak")
+        self.signUpPage.signUp(self.validData)
 
     # Nevalidní e-mail - očekávám error hlášku
     @pytest.mark.run(order=3)
