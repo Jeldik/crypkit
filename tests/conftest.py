@@ -3,24 +3,17 @@ from base.webdriverfactory import WebDriverFactory
 
 
 @pytest.fixture(scope="class")
-def oneTimeSetUp(request, browser):
+def oneTimeSetup(request):
+    browser = request.config.getoption("--browser")
     wdf = WebDriverFactory(browser)
     driver = wdf.getWebDriverInstance()
 
+    # Pokud je fixture volaná třídou, třída bude mít na sobě nový atribut driver
     if request.cls is not None:
         request.cls.driver = driver
 
     yield
     driver.quit()
-
-
-def pytest_addoption(parser):
-    parser.addoption("--browser")
-
-
-@pytest.fixture(scope="session")
-def browser(request):
-    return request.config.getoption("--browser")
 
 
 @pytest.fixture
@@ -43,3 +36,8 @@ def loadEmptyData():
         "password": "",
         "password_confirm": ""
     }
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", default="chrome")
+

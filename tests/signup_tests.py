@@ -1,16 +1,24 @@
 import unittest
 import pytest
+import logging
 from pages.signup_page import SignUpPage
+from utilities.BaseClass import BaseClass
 
 
-@pytest.mark.usefixtures()
-class SignUpTests(unittest.TestCase):
+class SignUpTests(unittest.TestCase, BaseClass):
 
     @pytest.fixture(autouse=True)
-    def classSetUp(self, oneTimeSetUp, loadValidData, loadEmptyData):
+    def classSetUp(self, loadValidData, loadEmptyData):
         self.signUpPage = SignUpPage(self.driver)
         self.emptyData = loadEmptyData
         self.validData = loadValidData
+        # self.logger = logging.getLogger(__name__)
+        # self.fileHandler = logging.FileHandler("logfile.log")
+        # self.logger.addHandler(self.fileHandler)
+        # self.loggerName = inspect.stack()[1][3]
+        # self.formatter = logging.Formatter("%(asctime)s :%(levelname)s : %(name)s :%(message)s")
+        # self.fileHandler.setFormatter(self.formatter)
+        # self.logger.setLevel(logging.INFO)
 
     # Bez vyplnění zmáčknu sign up - dostanu 3 alerty
     @pytest.mark.run(order=1)
