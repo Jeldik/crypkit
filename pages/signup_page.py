@@ -78,3 +78,22 @@ class SignUpPage:
         confirmErrorPresent = seDriver.isElementPresent(locator=self.password_confirm_message)
 
         return emailErrorPresent and passwordErrorPresent and confirmErrorPresent
+
+    def loadValidData(self):
+        return {
+            "first_name": "Jan",
+            "last_name": "Novák",
+            "email": "jan@novak.cz",
+            "password": "jannovak",
+            "password_confirm": "jannovak"
+        }
+
+    def loadEmptyData(self):
+        return {
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "password": "",
+            "password_confirm": ""
+        }
+

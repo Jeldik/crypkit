@@ -16,28 +16,6 @@ def oneTimeSetup(request):
     driver.quit()
 
 
-@pytest.fixture
-def loadValidData():
-    return {
-        "first_name": "Jan",
-        "last_name": "Novák",
-        "email": "jan@novak.cz",
-        "password": "jannovak",
-        "password_confirm": "jannovak"
-    }
-
-
-@pytest.fixture
-def loadEmptyData():
-    return {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "password": "",
-        "password_confirm": ""
-    }
-
-
 def pytest_addoption(parser):
     parser.addoption("--browser", default="chrome")
 

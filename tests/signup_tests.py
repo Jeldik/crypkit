@@ -8,10 +8,10 @@ from utilities.BaseClass import BaseClass
 class SignUpTests(unittest.TestCase, BaseClass):
 
     @pytest.fixture(autouse=True)
-    def classSetUp(self, loadValidData, loadEmptyData):
+    def classSetUp(self):
         self.signUpPage = SignUpPage(self.driver)
-        self.emptyData = loadEmptyData
-        self.validData = loadValidData
+        self.emptyData = self.signUpPage.loadEmptyData()
+        self.validData = self.signUpPage.loadValidData()
         # self.logger = logging.getLogger(__name__)
         # self.fileHandler = logging.FileHandler("logfile.log")
         # self.logger.addHandler(self.fileHandler)
