@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-
 from base.selenium_driver import SeleniumDriver
 
 
@@ -21,22 +20,22 @@ class SignUpPage:
         self.driver = driver
 
     def getFirstNameField(self):
-        return self.driver.find_element(*self.first_name_field)
+        return self.driver.find_element(*SignUpPage.first_name_field)
 
     def getLastNameField(self):
-        return self.driver.find_element(*self.last_name_field)
+        return self.driver.find_element(*SignUpPage.last_name_field)
 
     def getEmailField(self):
-        return self.driver.find_element(*self.email_field)
+        return self.driver.find_element(*SignUpPage.email_field)
 
     def getPasswordField(self):
-        return self.driver.find_element(*self.password_field)
+        return self.driver.find_element(*SignUpPage.password_field)
 
     def getPasswordConfirmField(self):
-        return self.driver.find_element(*self.password_confirm_field)
+        return self.driver.find_element(*SignUpPage.password_confirm_field)
 
     def getSignUpButton(self):
-        return self.driver.find_element(*self.sign_up_button)
+        return self.driver.find_element(*SignUpPage.sign_up_button)
 
     def clickSignUpButton(self):
         self.getSignUpButton().click()
@@ -72,6 +71,8 @@ class SignUpPage:
 
     def verifySignUpFailed(self):
         seDriver = SeleniumDriver(self.driver)
+        # explicit wait
+
         emailErrorPresent = seDriver.isElementPresent(locator=self.email_error_message)
         passwordErrorPresent = seDriver.isElementPresent(locator=self.password_error_message)
         confirmErrorPresent = seDriver.isElementPresent(locator=self.password_confirm_message)

@@ -1,6 +1,6 @@
 import pytest
 
 
-@pytest.mark.usefixtures("oneTimeSetup", "loadValidData", "loadEmptyData")
+@pytest.mark.usefixtures("oneTimeSetup")
 class BaseClass:
     pass

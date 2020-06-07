@@ -1,3 +1,5 @@
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class SeleniumDriver:
@@ -6,8 +8,7 @@ class SeleniumDriver:
         self.driver = driver
 
     def isElementPresent(self, locator):
-
-        element = self.driver.find_element(*locator)
+        element = WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located(locator))
 
         if element is not None:
             return True
