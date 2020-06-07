@@ -66,9 +66,6 @@ class SignUpPage:
         if len(data["first_name"]) == 0:
             self.clickSignUpButton()
 
-    def refreshPage(self):
-        self.driver.get(self._base_url)
-
     def verifySignUpFailed(self):
         seDriver = SeleniumDriver(self.driver)
         # explicit wait

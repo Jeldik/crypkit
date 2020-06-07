@@ -32,7 +32,7 @@ class SignUpTests(unittest.TestCase, BaseClass):
     # Kladný průběh - vše vyplněno správně
     @pytest.mark.run(order=2)
     def test_validSignUp(self):
-        self.signUpPage.refreshPage()
+        self.driver.refresh()
         self.signUpPage.signUp(self.validData)
 
     # Nevalidní e-mail - očekávám error hlášku
