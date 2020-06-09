@@ -16,8 +16,9 @@ class SignUpPage:
     password_error_message = (By.XPATH, "//*[@id=\'sign-up-form\']/span[2]/div/div/span")
     password_confirm_message = (By.XPATH, "//*[@id=\'sign-up-form\']/span[3]/div/div/span")
 
-    def __init__(self, driver):
+    def __init__(self, driver, logger):
         self.driver = driver
+        self.log = logger
 
     def getFirstNameField(self):
         return self.driver.find_element(*SignUpPage.first_name_field)
@@ -62,13 +63,15 @@ class SignUpPage:
         self.enterPassword(data["password"])
         self.enterPasswordConfirm(data["password_confirm"])
 
+        self.log.info("Vyplněna vstupní data: " + data["first_name"] + ", " + data["last_name"] + ", " + data["email"]
+                      + ", " + data["password"])
+
         # FIXME před odevzdáním
         if len(data["first_name"]) == 0:
             self.clickSignUpButton()
 
     def verifySignUpFailed(self):
         seDriver = SeleniumDriver(self.driver)
-        # explicit wait
 
         emailErrorPresent = seDriver.isElementPresent(locator=self.email_error_message)
         passwordErrorPresent = seDriver.isElementPresent(locator=self.password_error_message)

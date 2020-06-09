@@ -1,6 +1,5 @@
 import unittest
 import pytest
-import logging
 from pages.signup_page import SignUpPage
 from utilities.BaseClass import BaseClass
 
@@ -9,16 +8,9 @@ class SignUpTests(unittest.TestCase, BaseClass):
 
     @pytest.fixture(autouse=True)
     def classSetUp(self):
-        self.signUpPage = SignUpPage(self.driver)
+        self.signUpPage = SignUpPage(self.driver, self.getLogger())
         self.emptyData = self.signUpPage.loadEmptyData()
         self.validData = self.signUpPage.loadValidData()
-        # self.logger = logging.getLogger(__name__)
-        # self.fileHandler = logging.FileHandler("logfile.log")
-        # self.logger.addHandler(self.fileHandler)
-        # self.loggerName = inspect.stack()[1][3]
-        # self.formatter = logging.Formatter("%(asctime)s :%(levelname)s : %(name)s :%(message)s")
-        # self.fileHandler.setFormatter(self.formatter)
-        # self.logger.setLevel(logging.INFO)
 
     # Bez vyplnění zmáčknu sign up - dostanu 3 alerty
     @pytest.mark.run(order=1)
@@ -30,6 +22,7 @@ class SignUpTests(unittest.TestCase, BaseClass):
         assert result == True
 
     # Kladný průběh - vše vyplněno správně
+    # Dodělat kontrolu, že se dostanu na další stránku
     @pytest.mark.run(order=2)
     def test_validSignUp(self):
         self.driver.refresh()
