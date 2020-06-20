@@ -21,6 +21,7 @@ class WebDriverFactory:
 
         driver.implicitly_wait(3)
         driver.maximize_window()
+        driver.delete_all_cookies()
         driver.get(baseURL)
 
         return driver
