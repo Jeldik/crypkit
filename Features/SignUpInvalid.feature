@@ -2,25 +2,25 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
   As new user I want to create new account
 
   @tagCurrent
-  Scenario: Test sending empty form
+  Scenario: User try to signing up with empty form
     Given User visited crypkit sign up page
     When User don't fill form
     And User hit Sign Up button
     Then Should see three warning messages
 
-  Scenario: Test invalid e-mail
+  Scenario: User try to signing up with invalid e-mail
     Given User visited crypkit sign up page
     When User fill invalid
     And User hit Sign Up button
     Then Should see invalid e-mail warning text
 
-  Scenario: Test short password
+  Scenario: User try to signing up with short password
     Given User visited crypkit sign up page
     When User fill short password
     And User hit Sign Up button
     Then Should see short password warning text
 
-  Scenario: Test different password
+  Scenario: User try to signing up with different password
     Given User visited crypkit sign up page
     When User fill password
     And User fill different password
