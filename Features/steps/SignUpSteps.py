@@ -9,7 +9,6 @@ use_step_matcher("re")
 
 
 class SignUpTest(unittest.TestCase, BaseClass):
-
     baseURL = "https://app2.crypkit.com/signup"
 
     @pytest.fixture(autouse=True)
@@ -28,7 +27,7 @@ class SignUpTest(unittest.TestCase, BaseClass):
     def step_impl(context):
         print("passed")
 
-    @step("Hit Sign Up button")
+    @step("User hit Sign Up button")
     def step_impl(context):
         print("passed")
 
@@ -60,7 +59,7 @@ class SignUpTest(unittest.TestCase, BaseClass):
     def step_impl(context):
         print("passed")
 
-    @when("User fill valid password")
+    @when("User type valid password")
     def step_impl(context):
         print("passed")
 
@@ -80,11 +79,11 @@ class SignUpTest(unittest.TestCase, BaseClass):
     def step_impl(context):
         print("passed")
 
-    @when("User fill in valid password")
+    @when("User type in valid password")
     def step_impl(context):
         print("passed")
 
-    @step("User fill same password")
+    @step("User type in same password")
     def step_impl(context):
         print("passed")
 
@@ -116,6 +115,3 @@ class SignUpTest(unittest.TestCase, BaseClass):
     def step_impl(context):
         print("passed")
 
-
-if __name__ == '__main__':
-    unittest.main()

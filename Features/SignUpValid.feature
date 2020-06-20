@@ -4,17 +4,17 @@ Feature: Sign up to Crypkit test
   Scenario: Test sending valid form
     Given User visited crypkit sign up page
     When User fill valid form
-    And Hit Sign Up button
+    And User hit Sign Up button
     Then Should get to success page
 
   Scenario: Test valid password
     Given User visited crypkit sign up page
-    When User fill valid password
-    And Hit Sign Up button
+    When User type valid password
+    And User hit Sign Up button
     Then User don't see warning message
 
   Scenario: Test same password
     Given User visited crypkit sign up page
-    When User fill in valid password
-    And User fill same password
+    When User type in valid password
+    And User type in same password
     Then Shouldn't see any warning text
