@@ -3,25 +3,24 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
 
   @tagCurrent
   Scenario: User try to signing up with empty form
-    Given User visited crypkit sign up page
-    When User don't fill form
-    And User hit Sign Up button
+    Given User visited sign up page
+    When User click on "sign up" button
     Then Should see three warning messages
 
   Scenario: User try to signing up with invalid e-mail
-    Given User visited crypkit sign up page
-    When User fill invalid
-    And User hit Sign Up button
-    Then Should see invalid e-mail warning text
+    Given User get to "sign up" page
+    When User type invalid format e-mail
+    And User click on "sign up" button
+    Then Should see the "invalid e-mail" warning text
 
   Scenario: User try to signing up with short password
-    Given User visited crypkit sign up page
-    When User fill short password
-    And User hit Sign Up button
-    Then Should see short password warning text
+    Given User get to "sign up" page
+    When User type short password
+    And User click on "sign up" button
+    Then Should see the "short password" warning text
 
   Scenario: User try to signing up with different password
-    Given User visited crypkit sign up page
-    When User fill password
-    And User fill different password
-    Then Should see different password warning text
+    Given User get to "sign up" page
+    When User type password
+    And User type different password
+    Then Should see the "different password" warning text

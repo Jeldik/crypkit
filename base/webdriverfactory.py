@@ -7,6 +7,7 @@ class WebDriverFactory:
 
     def getWebDriverInstance(self):
         baseURL = "https://app2.crypkit.com/signup"
+        driver = webdriver.Chrome()
 
         if self.browser == "chrome":
             driver = webdriver.Chrome()

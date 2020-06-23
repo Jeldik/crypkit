@@ -1,117 +1,136 @@
-import unittest
-import pytest
 from behave import *
-from base.webdriverfactory import WebDriverFactory
-from pages.signup_page import SignUpPage
-from utilities.BaseClass import BaseClass
-
-use_step_matcher("re")
 
 
-class SignUpTest(unittest.TestCase, BaseClass):
-    baseURL = "https://app2.crypkit.com/signup"
+@given("User visited sign up page")
+def visit_signup_page(context):
+    """
+    Step to visit sign up page
+    :type context: behave.runner.Context
+    """
+    print("done")
 
-    @pytest.fixture(autouse=True)
-    def classSetUp(self):
-        self.signUpPage = SignUpPage(self.driver, self.getLogger())
-        self.emptyData = self.signUpPage.loadEmptyData()
-        self.validData = self.signUpPage.loadValidData()
 
-    @given("User visited crypkit sign up page")
-    def step_impl(context):
-        # driver = WebDriverFactory.getWebDriverInstance(context)
-        # driver.get(SignUpTest.baseURL)
-        pass
+@step("User click on {element}")
+def step_impl(context, element):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @when("User don't fill form")
-    def step_impl(context):
-        print("passed")
 
-    @step("User hit Sign Up button")
-    def step_impl(context):
-        print("passed")
+@then("Should see three warning messages")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Should see three warning messages")
-    def step_impl(context):
-        print("passed")
 
-    @when("User fill valid form")
-    def step_impl(context):
-        print("passed")
+@when("User fill valid form")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Should get to success page")
-    def step_impl(context):
-        print("passed")
 
-    @when("User fill invalid")
-    def step_impl(context):
-        print("passed")
+@step("User get to {element} page")
+def step_impl(context, element):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Should see invalid e-mail warning text")
-    def step_impl(context):
-        print("passed")
 
-    @when("User fill short password")
-    def step_impl(context):
-        print("passed")
+@when("User type invalid format e-mail")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Should see short password warning text")
-    def step_impl(context):
-        print("passed")
 
-    @when("User type valid password")
-    def step_impl(context):
-        print("passed")
+@then("Should see the {element} warning text")
+def step_impl(context, element):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("User don't see warning message")
-    def step_impl(context):
-        print("passed")
 
-    @when("User fill password")
-    def step_impl(context):
-        print("passed")
+@when("User type short password")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @step("User fill different password")
-    def step_impl(context):
-        print("passed")
 
-    @then("Should see different password warning text")
-    def step_impl(context):
-        print("passed")
+@when("User type valid password")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @when("User type in valid password")
-    def step_impl(context):
-        print("passed")
 
-    @step("User type in same password")
-    def step_impl(context):
-        print("passed")
+@then("User don't see warning message")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Shouldn't see any warning text")
-    def step_impl(context):
-        print("passed")
 
-    @when("User click on logo")
-    def step_impl(context):
-        print("passed")
+@when("User type password")
+def step_impl(context):
+    """
+    Step to
+    :return:
+    """
+    print("passed")
 
-    @then("Should get to homepage")
-    def step_impl(context):
-        print("passed")
 
-    @when("User click on sign in button")
-    def step_impl(context):
-        print("passed")
+@step("User type different password")
+def step_impl(context):
+    """
+    Step to type different password than previous password
+    :return:
+    """
+    print("passed")
 
-    @then("Should get to sign in page")
-    def step_impl(context):
-        print("passed")
 
-    @when("User click to policy button")
-    def step_impl(context):
-        print("passed")
+@when("User type in valid password")
+def step_impl(context):
+    """
+    Step to type valid password
+    :return:
+    """
+    print("passed")
 
-    @then("Should see policy text")
-    def step_impl(context):
-        print("passed")
 
+@step("User type in same password")
+def step_impl(context):
+    """
+    Step to type same passwrod as in previous step
+    :return:
+    """
+    print("passed")
+
+
+@then("User shouldn't see any warning text")
+def step_impl(context):
+    """
+    Step to check that user not see any warning text
+    :return:
+    """
+    print("passed")
