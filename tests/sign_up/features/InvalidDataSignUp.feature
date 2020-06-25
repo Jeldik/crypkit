@@ -2,9 +2,9 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
   As new user I want to create new account
 
   @tagCurrent
-  Scenario: User try to signing up with empty form
-    Given User visited sign up page
-    When User click on "sign up" button
+  Scenario: User shouldn't sign up with empty form
+    Given I go to the site "https://app2.crypkit.com/signup"
+    When I click on "sign up" button
     Then Should see three warning messages
 
   Scenario: User try to signing up with invalid e-mail

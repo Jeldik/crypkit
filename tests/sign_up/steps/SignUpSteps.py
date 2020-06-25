@@ -1,13 +1,4 @@
-from behave import *
-
-
-@given("User visited sign up page")
-def visit_signup_page(context):
-    """
-    Step to visit sign up page
-    :type context: behave.runner.Context
-    """
-    print("done")
+from BDDCommon.CommonSteps.webstepscommon import *
 
 
 @step("User click on {element}")
@@ -134,3 +125,11 @@ def step_impl(context):
     :return:
     """
     print("passed")
+
+
+@given("User visited sign up page")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Given User visited sign up page')
