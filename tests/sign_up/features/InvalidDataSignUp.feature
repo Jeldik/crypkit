@@ -3,15 +3,17 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
 
   @current
   Scenario: I shouldn't sign up with empty form
-    Given I go to the site signup
-    When I click on sign up
-    Then I Should see three warning messages
-
+    Given I go to the site sign_up
+    When I click on sign_up_button
+    Then I Should see the email_error_message text
+    And I Should see the password_error_message text
+    And I Should see the password_confirm_error_message text
+  @current
   Scenario: User try to signing up with invalid e-mail
-    Given User get to "sign up" page
-    When User type invalid format e-mail
-    And User click on "sign up" button
-    Then Should see the "invalid e-mail" warning text
+    Given I go to the site sign_up
+    When I type invalid e-mail format
+    And I click on sign_up_button
+    Then I Should see the email_error_message text
 
   Scenario: User try to signing up with short password
     Given User get to "sign up" page
