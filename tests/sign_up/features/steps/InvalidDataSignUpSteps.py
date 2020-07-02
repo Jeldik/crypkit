@@ -22,6 +22,15 @@ def see_three_warning_messages(context):
     assert emailErrorPresent and passwordErrorPresent and confirmErrorPresent
 
 
-@when("I type invalid e-mail format")
-def type_invalid_email_format(context):
-    context.driver.find_element(*config.ELEMENTCONFIG["email_field"]).send_keys(config.DATACONFIG["invalid_email"])
+@when("I type {element} format")
+def type_invalid_email_format(context, element):
+    context.driver.find_element(*config.ELEMENTCONFIG["email_field"]).send_keys(config.DATACONFIG[element])
+
+
+@step("I type {element}")
+def type_password(context, element):
+    if 'confirm_password' in element:
+        context.driver.find_element(*config.ELEMENTCONFIG["password_confirm_field"]).send_keys(config.DATACONFIG[element])
+    else:
+        context.driver.find_element(*config.ELEMENTCONFIG["password_field"]).send_keys(
+            config.DATACONFIG[element])
