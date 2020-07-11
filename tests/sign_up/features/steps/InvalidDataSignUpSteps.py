@@ -34,3 +34,4 @@ def type_password(context, element):
     else:
         context.driver.find_element(*config.ELEMENTCONFIG["password_field"]).send_keys(
             config.DATACONFIG[element])
+
