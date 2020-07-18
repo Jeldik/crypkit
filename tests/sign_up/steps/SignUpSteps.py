@@ -15,7 +15,7 @@ def step_impl(context):
     print("passed")
 
 
-@when("User fill valid form")
+@when("I fill valid form")
 def step_impl(context):
     print("passed")
 

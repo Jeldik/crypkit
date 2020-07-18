@@ -4,11 +4,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from BDDCommon.CommonSteps.webstepscommon import *
 
 
-@when('I click on sign up')
-def click_on_sign_up(context):
-    context.driver.find_element(*SignUpPage.sign_up_button).click()
-
-
 @then("I Should see three warning messages")
 def see_three_warning_messages(context):
     emailErrorPresent = WebDriverWait(context.driver, 5).until(expected_conditions.presence_of_element_located(

@@ -1,11 +1,12 @@
-Feature: Sign up to Crypkit test
+@positive
+Feature: Attempt to signing up to Crypkit with valid credentials
   As new user I want to create new account
-
+@tom
   Scenario: User try to signing up with valid credentials
-    Given User visited sign up page
-    When User fill valid form
-    And User click on "sign up"
-    Then User should get to "success" page
+    Given I go to the site sign_up
+    When I fill valid form
+    And I click on sign_up_button
+    Then I should navigate to next page
 
   Scenario: User try to signing up with valid password
     Given User visited sign up page

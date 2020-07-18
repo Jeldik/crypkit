@@ -1,4 +1,4 @@
-@tom
+@negative
 Feature: Attempt to signing up to Crypkit with invalid credentials
   As new user I want to create new account
 
@@ -20,7 +20,7 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
     And I move off the element
     Then I Should see text: Password is too weak
 
-@tomas
+
   Scenario: I try to signing up with different passwords
     Given I go to the site sign_up
     When I type valid_password
