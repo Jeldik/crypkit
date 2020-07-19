@@ -3,27 +3,28 @@ Feature: Attempt to signing up to Crypkit with invalid credentials
   As new user I want to create new account
 
   Scenario: I shouldn't sign up with empty form
-    When I go to the site sign_up
-    Then sign_up_button should be disabled
+    When I go to the site sign up
+    Then sign up button should be disabled
 
 
   Scenario: I try to signing up with invalid e-mail
-    Given I go to the site sign_up
-    When I type invalid_email format
+    Given I go to the site sign up
+    When I type invalid email format
     And I move off the element
     Then I Should see text: Email is not valid.
 
 
   Scenario: I try to signing up with weak password
-    Given I go to the site sign_up
-    When I type weak_password
+    Given I go to the site sign up
+    When I type weak password in password field
     And I move off the element
-    Then I Should see text: Password is too weak
+    Then I Should see text: weak
+    And I Should see text: Password is too weak
 
 
   Scenario: I try to signing up with different passwords
-    Given I go to the site sign_up
-    When I type valid_password
-    And I type different_confirm_password
+    Given I go to the site sign up
+    When I type valid password
+    And I type different confirm password
     And I move off the element
     Then I Should see text: Passwords must match

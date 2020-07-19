@@ -18,14 +18,16 @@ def see_three_warning_messages(context):
 
 @when("I type {element} format")
 def type_invalid_email_format(context, element):
-    context.driver.find_element(*config.ELEMENTCONFIG["email_field"]).send_keys(config.DATACONFIG[element])
+    context.driver.find_element(*config.ELEMENTCONFIG["email"]).send_keys(config.DATACONFIG[element])
 
+
+# weak pass
 
 @step("I type {element}")
 def type_password(context, element):
-    if 'confirm_password' in element:
-        context.driver.find_element(*config.ELEMENTCONFIG["password_confirm_field"]).send_keys(config.DATACONFIG[element])
+    if 'confirm password' in element:
+        context.driver.find_element(*config.ELEMENTCONFIG["confirm password"]).send_keys(config.DATACONFIG[element])
     else:
-        context.driver.find_element(*config.ELEMENTCONFIG["password_field"]).send_keys(
+        context.driver.find_element(*config.ELEMENTCONFIG["password"]).send_keys(
             config.DATACONFIG[element])
 
