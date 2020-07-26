@@ -21,8 +21,6 @@ def type_invalid_email_format(context, element):
     context.driver.find_element(*config.ELEMENTCONFIG["email"]).send_keys(config.DATACONFIG[element])
 
 
-# weak pass
-
 @step("I type {element}")
 def type_password(context, element):
     if 'confirm password' in element:

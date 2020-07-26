@@ -12,6 +12,6 @@ def fill_valid_form(context):
     context.driver.find_element(*config.ELEMENTCONFIG["confirm password"]).send_keys(config.DATACONFIG['valid email'])
 
 
-@then("I should navigate to next page")
-def navigate_next_page(context):
+@then("I should be redirect to {page}")
+def navigate_next_page(context, page):
     pass
