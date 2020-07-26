@@ -2,7 +2,6 @@
 Feature: Attempt to signing up to Crypkit with different strength of password
   As new user I want to create new account with different strength of password
 
-@tom
   Scenario: I try to signing up with weak password
     Given I go to the site sign up
     When I type weak password in password field

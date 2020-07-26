@@ -1,3 +1,4 @@
+@elements
 Feature: Check sign up page elements
 
   Scenario: The Sign Up page should have correct title
