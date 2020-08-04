@@ -1,5 +1,4 @@
 from behave import *
-
 from BDDCommon.CommonConfigs import config
 
 

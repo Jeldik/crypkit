@@ -1,6 +1,5 @@
 from behave import *
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from BDDCommon.CommonSteps.webstepscommon import *
 
 
