@@ -6,5 +6,10 @@ def before_scenario(context, scenario):
     # Otevřít browser
     # jít na testovanou stránku
     # url = config.URLCONFIG['sign up']
-    url = 'www.seznam.cz'
-    context.driver = webcommon.go_to(url)
+    context.driver = webcommon.open_browser()
+
+
+def after_step(context, step):
+    if step.status.name == 'failed':
+        # take screen shot
+        pass
