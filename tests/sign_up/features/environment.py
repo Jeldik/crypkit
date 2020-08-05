@@ -4,8 +4,6 @@ from BDDCommon.CommonFuncs import webcommon
 
 def before_scenario(context, scenario):
     # Otevřít browser
-    # jít na testovanou stránku
-    # url = config.URLCONFIG['sign up']
     context.driver = webcommon.open_browser()
 
 
