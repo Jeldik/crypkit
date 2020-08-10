@@ -5,22 +5,14 @@ Feature: Attempt to signing up to Crypkit with different strength of password
   Background: Go to the Sign up page
     Given I go to the site sign up
 
-  Scenario: I try to signing up with weak password
-    When I type weak password in password field
+  Scenario Outline: I try to signing up with <password>
+    When I type <password type> in password field
     And I move off the element
-    Then I Should see text: Weak
+    Then I Should see text: <text>
 
-  Scenario: I try to signing up with fair password
-    When I type fair password in password field
-    And I move off the element
-    Then I Should see text: Fair
-
-  Scenario: I try to signing up with good password
-    When I type good password in password field
-    And I move off the element
-    Then I Should see text: Good
-
-  Scenario: I try to signing up with strong password
-    When I type strong password in password field
-    And I move off the element
-    Then I Should see text: Strong
+    Examples:
+      | password type   | text   |
+      | weak password   | Weak   |
+      | fair password   | Fair   |
+      | good password   | Good   |
+      | strong password | Strong |
