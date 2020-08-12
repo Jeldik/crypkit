@@ -4,7 +4,7 @@ from BDDCommon.CommonFuncs import webcommon
 
 def before_scenario(context, scenario):
     # Otevřít browser
-    context.driver = webcommon.open_browser()
+    context.driver = webcommon.open_browser(context.config.userdata.get("browser"))
 
 
 def after_step(context, step):
